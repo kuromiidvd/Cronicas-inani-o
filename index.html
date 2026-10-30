@@ -67,6 +67,42 @@ body:before{content:"";position:fixed;z-index:-1;pointer-events:none;width:min(4
 @media(max-width:1100px){.bodyGrid{grid-template-columns:minmax(220px,34%) minmax(0,1fr);gap:10px}.bodyRef{min-height:410px}.bodyRef svg{max-height:390px}}
 @media(max-width:650px){.bodyGrid{grid-template-columns:minmax(0,1fr);gap:10px}.bodyRef{min-height:0;height:250px;padding:8px}.bodyRef svg{height:220px;width:auto;max-width:100%;max-height:220px}.bodyHint{font-size:9px;bottom:5px}.partPanel{grid-template-columns:minmax(0,1fr);gap:8px}.partCard{padding:10px}.partTop b{font-size:14px}.partTop .tag{font-size:10px}.hpLine{grid-template-columns:76px minmax(20px,1fr) auto}.condition{font-size:11px}}
 @media(max-width:360px){.bodyRef{height:220px}.bodyRef svg{height:190px;max-height:190px}.hpLine{grid-template-columns:66px minmax(16px,1fr) auto;gap:5px}.hpLine button{padding:5px 6px;font-size:10px}}
+
+/* v22 — temas individuais das divindades */
+.themeGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.themeChoice{display:flex;align-items:center;gap:10px;text-align:left;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:9px;padding:11px;min-width:0}.themeChoice.active{outline:2px solid var(--accent);border-color:var(--accent)}.themeSwatch{width:35px;height:35px;flex:none;border-radius:50%;border:2px solid #ffffff55;background:var(--swatch)}.themeChoice b{display:block;font-size:12px}.themeChoice small{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+body[data-theme="gro-goroth"]{--bg:#100707;--panel:#241010;--panel2:#351515;--panel3:#160909;--line:#67302a;--muted:#c09b91;--text:#f4e4dc;--accent:#d94a36;--accent2:#8f1717;background:radial-gradient(ellipse at 78% -10%,#692018 0,transparent 43%),#100707}
+body[data-theme="sylvian"]{--bg:#07110b;--panel:#10251a;--panel2:#183626;--panel3:#09170f;--line:#315c43;--muted:#a4c4a9;--text:#e4f2e5;--accent:#9acb79;--accent2:#397d58;background:radial-gradient(ellipse at 78% -10%,#285d3b 0,transparent 44%),#07110b}
+body[data-theme="depths"]{--bg:#070d14;--panel:#101c29;--panel2:#17283a;--panel3:#09121c;--line:#29465f;--muted:#9bb2c6;--text:#e0edf7;--accent:#55b5cf;--accent2:#285d91;background:radial-gradient(ellipse at 78% -10%,#174766 0,transparent 44%),#070d14}
+body[data-theme="rher"]{--bg:#08060a;--panel:#16101d;--panel2:#211626;--panel3:#100b14;--line:#3a2440;--muted:#aaa0b0;--text:#eae5d8;--accent:#c8a35a;--accent2:#9b294d;background:radial-gradient(ellipse at 78% -10%,#3a172b 0,transparent 42%),#08060a}
+body[data-theme="vinushka"]{--bg:#101007;--panel:#222316;--panel2:#33351d;--panel3:#15160c;--line:#555b2d;--muted:#c0c49a;--text:#f0f0d9;--accent:#b8bd54;--accent2:#657d38;background:radial-gradient(ellipse at 78% -10%,#50552b 0,transparent 44%),#101007}
+body[data-theme="alll-mer"]{--bg:#0b0d12;--panel:#191d27;--panel2:#252c39;--panel3:#10131b;--line:#46536b;--muted:#b0bacb;--text:#edf0f8;--accent:#d5d9e5;--accent2:#7184ad;background:radial-gradient(ellipse at 78% -10%,#4a5879 0,transparent 44%),#0b0d12}
+body[data-theme="fear-hunger"]{--bg:#100b0b;--panel:#251515;--panel2:#351e1e;--panel3:#170d0d;--line:#663c36;--muted:#c4a49a;--text:#f2e3d7;--accent:#d5ad72;--accent2:#8d302c;background:radial-gradient(ellipse at 78% -10%,#642b26 0,transparent 44%),#100b0b}
+body[data-theme="new-gods"]{--bg:#0b0b13;--panel:#191927;--panel2:#25253b;--panel3:#10101b;--line:#45456d;--muted:#aaaaca;--text:#e9e9f8;--accent:#a9a0ef;--accent2:#6156a8;background:radial-gradient(ellipse at 78% -10%,#3d376d 0,transparent 44%),#0b0b13}
+@media(max-width:650px){.themeGrid{grid-template-columns:1fr}}
+
+
+/* Harmoniza os componentes antigos com a paleta ativa */
+body[data-theme] .side{background:linear-gradient(180deg,var(--panel),var(--bg));border-right-color:var(--line)}
+body[data-theme] .brand{color:var(--text)}
+body[data-theme] .brand:after{color:var(--accent)}
+body[data-theme] .nav button:hover{background:var(--panel2);color:var(--text)}
+body[data-theme] .nav button.active{background:var(--panel2);color:var(--accent);box-shadow:inset 3px 0 var(--accent)}
+body[data-theme] .top{background:color-mix(in srgb,var(--bg) 92%,transparent);border-bottom-color:var(--line)}
+body[data-theme] .btn{background:var(--panel2);border-color:var(--line);color:var(--text)}
+body[data-theme] .btn.primary{background:var(--accent2);border-color:var(--accent);color:#fff}
+body[data-theme] .card{background:linear-gradient(145deg,var(--panel),var(--panel3));border-color:var(--line)}
+body[data-theme] .head{border-bottom-color:var(--line)}
+body[data-theme] .head h2{color:var(--text)}
+body[data-theme] .resource,body[data-theme] .attr,body[data-theme] .mini,body[data-theme] .skill,body[data-theme] .attack,body[data-theme] .item,body[data-theme] .partCard,body[data-theme] .creatureAttr,body[data-theme] .creatureMember{background:var(--panel3);border-color:var(--line)}
+body[data-theme] .field input,body[data-theme] .field textarea,body[data-theme] .field select,body[data-theme] .hpLine input{background:var(--bg);border-color:var(--line);color:var(--text)}
+body[data-theme] .sheetAreaNav{background:var(--panel);border-color:var(--line)}
+body[data-theme] .sheetAreaNav button{background:var(--panel2);border-color:var(--line);color:var(--muted)}
+body[data-theme] .sheetAreaNav button.active{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+body[data-theme] .tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+body[data-theme] .note{background:var(--panel2);border-left-color:var(--accent)}
+body[data-theme] .modalBox,body[data-theme] .modalHead{background:var(--panel);border-color:var(--line)}
+body[data-theme] .meter i,body[data-theme] .hpBar i{background:linear-gradient(90deg,var(--accent2),var(--accent))}
+
 </style>
 </head>
 <body>
@@ -84,7 +120,7 @@ body:before{content:"";position:fixed;z-index:-1;pointer-events:none;width:min(4
   <div class="sideFoot">Interface própria inspirada em fichas digitais de RPG.<br>Os dados são salvos neste navegador.</div>
 </aside>
 <main class="main">
-<header class="top"><div class="crumb"><button type="button" class="btn smallBtn" id="menu">☰</button><span id="crumb">Ficha / Nenhuma ficha</span></div><div class="actions"><button type="button" class="btn" id="accountButton">Entrar / Criar conta</button><button type="button" class="btn" id="save">Salvar</button><button type="button" class="btn primary" id="edit">Editar ficha</button><button type="button" class="btn primary" id="newSheet">Nova ficha</button><button type="button" class="btn danger" id="deleteSheet">Excluir ficha</button></div></header>
+<header class="top"><div class="crumb"><button type="button" class="btn smallBtn" id="menu">☰</button><span id="crumb">Ficha / Nenhuma ficha</span></div><div class="actions"><button type="button" class="btn" id="themeButton">Tema</button><button type="button" class="btn" id="accountButton">Entrar / Criar conta</button><button type="button" class="btn" id="save">Salvar</button><button type="button" class="btn primary" id="edit">Editar ficha</button><button type="button" class="btn primary" id="newSheet">Nova ficha</button><button type="button" class="btn danger" id="deleteSheet">Excluir ficha</button></div></header>
 <div class="content">
 <section class="view active" id="view-sheet">
   <div class="hero"><div><h1 id="name">Nenhuma ficha criada</h1><p><span id="class"></span><span id="origin"></span> <span id="level">—</span> <span id="alma"></span></p></div><button type="button" class="btn primary" id="quickRoll">Rolar 2d10</button></div>
@@ -197,7 +233,8 @@ body:before{content:"";position:fixed;z-index:-1;pointer-events:none;width:min(4
 <div class="field full"><label>Alcance</label><input id="newAbilityRange" placeholder="Ex.: Pessoal, toque, 9 m"></div>
 <div class="field full"><label>Efeito / descrição</label><textarea id="newAbilityEffect" placeholder="Descreva como a habilidade funciona."></textarea></div>
 </div><div style="display:flex;justify-content:flex-end;gap:8px;margin-top:15px"><button type="button" class="btn" data-close>Cancelar</button><button type="button" class="btn primary" id="finishAbility">Finalizado</button></div></div></div></div>
-<div class="modal" id="accountModal"><div class="modalBox"><div class="modalHead"><b>Conta Crônicas</b><button type="button" class="btn" data-close>×</button></div><div class="modalBody"><p id="accountStatus" class="note">Entre ou crie uma conta para sincronizar suas fichas e campanhas entre dispositivos. A sincronização na nuvem precisa ser configurada no Supabase; veja LEIA-ME.txt.</p><div class="form"><div class="field full"><label>E-mail</label><input id="accountEmail" type="email" autocomplete="email" placeholder="voce@exemplo.com"></div><div class="field full"><label>Senha (mínimo 6 caracteres)</label><input id="accountPassword" type="password" autocomplete="current-password" placeholder="Sua senha"></div></div><div style="display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;margin-top:15px"><button type="button" class="btn" id="accountLogout">Sair da conta</button><button type="button" class="btn" id="accountLogin">Entrar</button><button type="button" class="btn primary" id="accountSignup">Criar conta</button></div></div></div></div>
+<div class="modal" id="accountModal"><div class="modalBox"><div class="modalHead"><b>Conta Crônicas</b><button type="button" class="btn" data-close>×</button></div><div class="modalBody"><p id="accountStatus" class="note">Entre ou crie uma conta para sincronizar suas fichas e campanhas entre dispositivos. A sincronização na nuvem precisa ser configurada no Supabase; veja LEIA-ME.txt.</p><div class="form"><div class="field full" id="usernameField"><label>Nome de usuário (único)</label><input id="accountUsername" type="text" autocomplete="username" maxlength="20" placeholder="ex.: jogador123"></div><div class="field full"><label>E-mail</label><input id="accountEmail" type="email" autocomplete="email" placeholder="voce@exemplo.com"></div><div class="field full"><label>Senha (mínimo 6 caracteres)</label><input id="accountPassword" type="password" autocomplete="current-password" placeholder="Sua senha"></div></div><div style="display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;margin-top:15px"><button type="button" class="btn" id="accountLogout">Sair da conta</button><button type="button" class="btn" id="accountLogin">Entrar</button><button type="button" class="btn primary" id="accountSignup">Criar conta</button></div></div></div></div>
+<div class="modal" id="themeModal"><div class="modalBox"><div class="modalHead"><b>Aparência — escolha sua divindade</b><button type="button" class="btn" data-close>×</button></div><div class="modalBody"><p class="note">A aparência escolhida afeta somente este navegador e não altera o tema dos outros jogadores.</p><div class="themeGrid" id="themeChoices"></div></div></div></div>
 <a class="discord-float" href="https://discord.gg/vPJgGDhp7" target="_blank" rel="noopener noreferrer" aria-label="Entrar no grupo do Discord" title="Entrar no grupo do Discord"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M19.7 5.1a18.7 18.7 0 0 0-4.6-1.4l-.6 1.2a17 17 0 0 0-5 0l-.6-1.2a18.5 18.5 0 0 0-4.6 1.4C1.4 9.4.6 13.6 1 17.7a18.7 18.7 0 0 0 5.7 2.9l1.2-1.9-1.9-.9.5-.4c3.7 1.7 7.7 1.7 11.4 0l.5.4-1.9.9 1.2 1.9a18.7 18.7 0 0 0 5.7-2.9c.5-4.8-.8-8.9-3.7-12.6ZM8.8 15.3c-1.1 0-2-.9-2-2.1s.9-2.1 2-2.1 2 .9 2 2.1-.9 2.1-2 2.1Zm6.4 0c-1.1 0-2-.9-2-2.1s.9-2.1 2-2.1 2 .9 2 2.1-.9 2.1-2 2.1Z"/></svg><span class="discord-label">Grupo no Discord</span></a>
 <nav class="mobile-nav" aria-label="Navegação rápida para celular"><button type="button" class="active" data-mobile-nav="sheet:overview"><span class="nav-ico">☾</span><span>Ficha</span></button><button type="button" data-mobile-nav="sheet:skills"><span class="nav-ico">✧</span><span>Perícias</span></button><button type="button" data-mobile-nav="sheet:combat"><span class="nav-ico">⚔</span><span>Combate</span></button><button type="button" data-mobile-nav="sheet:inventory"><span class="nav-ico">♧</span><span>Itens</span></button><button type="button" data-mobile-nav="more"><span class="nav-ico">☰</span><span>Mais</span></button></nav>
 <div class="toast" id="toast">Salvo.</div>
@@ -214,6 +251,7 @@ const SKILLS=[
 const SKILL_LABEL={};
 const SAVE_BASE=[['Fortitude','FOR','VIG'],['Reflexos','DES','INT'],['Vontade','POD','PRE']];
 const GODS=['Gro-Goroth','Sylvian','Deus das Profundezas','Alll-mer','God Of Fear and Hunger','Vinushka'];
+const DIVINE_THEMES=[['rher','Rher','Lua, engano e jogos','#c8a35a'],['gro-goroth','Gro-Goroth','Destruição e sacrifício','#d94a36'],['sylvian','Sylvian','Amor, prazer e criação','#9acb79'],['depths','Deus das Profundezas','Abismos e transformação','#55b5cf'],['vinushka','Vinushka','Natureza e decomposição','#b8bd54'],['alll-mer','Alll-Mer','Ascensão e transcendência','#d5d9e5'],['fear-hunger','Deusa do Medo e da Fome','Fome, medo e sobrevivência','#d5ad72'],['new-gods','Deuses Ascendidos','Tema coletivo dos novos deuses','#a9a0ef']];
 const RESISTANCES=['Cortante','Perfurante','Impacto','Balístico','Ácido','Chocante','Congelante','Destruição','Necrótico','Psíquico','Quimante','Venenoso','Mental'];
 const ORIGINS={
  'Nenhuma':'',
@@ -409,6 +447,12 @@ function finishAbility(){
  $('#abilityModal').classList.remove('open');save(false);render();toast('Habilidade adicionada à ficha.');
 }
 
+const THEME_KEY='cronicasTemaDivino';
+function applyTheme(theme,saveChoice=true){const chosen=DIVINE_THEMES.some(t=>t[0]===theme)?theme:'rher';document.body.dataset.theme=chosen;if(saveChoice)localStorage.setItem(THEME_KEY,chosen);renderThemeChoices();}
+function renderThemeChoices(){const host=$('#themeChoices');if(!host)return;const active=document.body.dataset.theme||localStorage.getItem(THEME_KEY)||'rher';host.innerHTML=DIVINE_THEMES.map(([id,name,desc,color])=>`<button type="button" class="themeChoice ${id===active?'active':''}" data-theme-choice="${id}"><span class="themeSwatch" style="--swatch:${color}"></span><span><b>${esc(name)}</b><small>${esc(desc)}</small></span></button>`).join('');}
+applyTheme(localStorage.getItem(THEME_KEY)||'rher',false);
+$('#themeButton')?.addEventListener('click',()=>{$('#themeModal').classList.add('open');renderThemeChoices();});
+$('#themeChoices')?.addEventListener('click',e=>{const b=e.target.closest('[data-theme-choice]');if(!b)return;applyTheme(b.dataset.themeChoice);});
 function save(msg=true){
   if(!data)return;
   sheets=loadSheets();
@@ -501,24 +545,25 @@ render();
 renderCampaigns();
 
 // Conta e sincronização opcional via Supabase. Sem configuração, o modo local continua funcionando.
-let authClient=null, authUser=null, cloudBusy=false, cloudTimer=null;
+let authClient=null, authUser=null, authProfile=null, cloudBusy=false, cloudTimer=null;
 const CLOUD_KEYS=['cronicasFichas','cronicasFichaAtual','cronicasCampanhas','cronicasCriaturas'];
 function accountMessage(msg){const el=$('#accountStatus');if(el)el.textContent=msg;}
+async function loadAccountProfile(){authProfile=null;if(!authClient||!authUser)return;const {data,error}=await authClient.from('profiles').select('username').eq('id',authUser.id).maybeSingle();if(!error&&data)authProfile=data;updateAccountButton();}
 function cloudConfigured(){const c=window.CRONICAS_SUPABASE_CONFIG||{};return !!(c.url&&c.anonKey&&!String(c.url).includes('SEU-PROJETO')&&!String(c.anonKey).includes('SUA-CHAVE'));}
-function updateAccountButton(){const b=$('#accountButton');if(!b)return;b.textContent=authUser?`Conta: ${authUser.email||'conectada'}`:'Entrar / Criar conta';$('#accountLogout').style.display=authUser?'inline-block':'none';}
+function updateAccountButton(){const b=$('#accountButton');if(!b)return;const uname=authProfile?.username||authUser?.user_metadata?.username;b.textContent=authUser?`@${uname||authUser.email||'conectada'}`:'Entrar / Criar conta';$('#accountLogout').style.display=authUser?'inline-block':'none';$('#usernameField').style.display=authUser?'none':'';}
 function localPayload(){const o={};for(const k of CLOUD_KEYS)o[k]=localStorage.getItem(k);return o;}
 function applyPayload(payload){cloudBusy=true;try{for(const k of CLOUD_KEYS){if(payload&&payload[k]!==undefined&&payload[k]!==null)localStorage.setItem(k,payload[k]);else localStorage.removeItem(k);}currentSheetId=localStorage.getItem('cronicasFichaAtual')||null;sheets=loadSheets();data=sheets.find(x=>x.id===currentSheetId)||null;render();renderCampaigns();renderAgents();}finally{cloudBusy=false;}}
 async function cloudSync(){if(!authClient||!authUser||cloudBusy)return;const payload=localPayload();const {error}=await authClient.from('user_data').upsert({user_id:authUser.id,payload,updated_at:new Date().toISOString()},{onConflict:'user_id'});if(error){console.error(error);accountMessage('Conta conectada, mas a sincronização falhou. Confira a configuração do banco no LEIA-ME.txt.');}}
 function scheduleCloudSync(){if(!authUser||cloudBusy)return;clearTimeout(cloudTimer);cloudTimer=setTimeout(()=>cloudSync(),500);}
 if(cloudConfigured()&&window.supabase?.createClient){const cfg=window.CRONICAS_SUPABASE_CONFIG;authClient=window.supabase.createClient(cfg.url,cfg.anonKey);const originalSet=localStorage.setItem.bind(localStorage),originalRemove=localStorage.removeItem.bind(localStorage);localStorage.setItem=function(k,v){originalSet(k,v);if(CLOUD_KEYS.includes(k))scheduleCloudSync();};localStorage.removeItem=function(k){originalRemove(k);if(CLOUD_KEYS.includes(k))scheduleCloudSync();};
- authClient.auth.getSession().then(async({data:sd})=>{authUser=sd.session?.user||null;updateAccountButton();if(authUser)await pullCloudData();});
- authClient.auth.onAuthStateChange((event,session)=>{authUser=session?.user||null;updateAccountButton();if(event==='SIGNED_IN')setTimeout(()=>pullCloudData(),0);});
+ authClient.auth.getSession().then(async({data:sd})=>{authUser=sd.session?.user||null;updateAccountButton();if(authUser){await loadAccountProfile();await pullCloudData();}});
+ authClient.auth.onAuthStateChange((event,session)=>{authUser=session?.user||null;updateAccountButton();if(event==='SIGNED_IN')setTimeout(async()=>{await loadAccountProfile();await pullCloudData();},0);});
 }else{accountMessage('Para habilitar contas e salvar fichas na nuvem, configure o Supabase seguindo LEIA-ME.txt. Sem isso, o site continua usando salvamento local neste navegador.');}
 async function pullCloudData(){if(!authClient||!authUser)return;accountMessage('Conta conectada. Sincronizando fichas...');try{localStorage.setItem('cronicasBackupAntesDaConta',JSON.stringify(localPayload()));}catch(e){}const {data:row,error}=await authClient.from('user_data').select('payload').eq('user_id',authUser.id).maybeSingle();if(error){console.error(error);accountMessage('Não foi possível carregar os dados da conta. Confira se executou o SQL de configuração.');return;}if(row?.payload){applyPayload(row.payload);accountMessage('Conta conectada. Fichas e campanhas sincronizadas.');}else{await cloudSync();accountMessage('Conta conectada. Seus dados locais foram enviados para esta conta.');}}
 $('#accountButton')?.addEventListener('click',()=>{$('#accountModal').classList.add('open');accountMessage(authUser?`Conectado como ${authUser.email}. Os dados são sincronizados nesta conta.`:(cloudConfigured()?'Entre ou crie uma conta para sincronizar suas fichas entre dispositivos.':'Configure o Supabase seguindo LEIA-ME.txt para ativar contas online.'));});
-$('#accountSignup')?.addEventListener('click',async()=>{if(!authClient){accountMessage('A conta online ainda não foi configurada. Abra LEIA-ME.txt e preencha supabase-config.js.');return;}const email=$('#accountEmail').value.trim(),password=$('#accountPassword').value;if(!email||password.length<6){accountMessage('Informe um e-mail válido e senha com pelo menos 6 caracteres.');return;}const {error}=await authClient.auth.signUp({email,password});accountMessage(error?`Erro ao criar conta: ${error.message}`:'Conta criada. Se a confirmação por e-mail estiver ativada, confirme o endereço antes de entrar.');});
+$('#accountSignup')?.addEventListener('click',async()=>{if(!authClient){accountMessage('A conta online ainda não foi configurada. Abra LEIA-ME.txt e preencha supabase-config.js.');return;}const email=$('#accountEmail').value.trim(),password=$('#accountPassword').value,username=$('#accountUsername').value.trim().toLowerCase();if(!/^[a-z0-9_]{3,20}$/.test(username)){accountMessage('O username deve ter de 3 a 20 caracteres: letras sem acento, números ou _.');return;}if(!email||password.length<6){accountMessage('Informe um e-mail válido e senha com pelo menos 6 caracteres.');return;}const {error}=await authClient.auth.signUp({email,password,options:{data:{username}}});accountMessage(error?`Erro ao criar conta: ${error.message}`:'Conta criada com username reservado. Se a confirmação por e-mail estiver ativada, confirme o endereço antes de entrar.');});
 $('#accountLogin')?.addEventListener('click',async()=>{if(!authClient){accountMessage('A conta online ainda não foi configurada. Abra LEIA-ME.txt e preencha supabase-config.js.');return;}const email=$('#accountEmail').value.trim(),password=$('#accountPassword').value;const {error}=await authClient.auth.signInWithPassword({email,password});accountMessage(error?`Erro ao entrar: ${error.message}`:'Login realizado. Carregando suas fichas...');});
-$('#accountLogout')?.addEventListener('click',async()=>{if(!authClient)return;await cloudSync();cloudBusy=true;try{for(const k of CLOUD_KEYS)localStorage.removeItem(k);currentSheetId=null;data=null;sheets=[];}finally{cloudBusy=false;}await authClient.auth.signOut();authUser=null;updateAccountButton();render();renderCampaigns();renderAgents();accountMessage('Você saiu da conta. Os dados continuam salvos na nuvem da sua conta.');});
+$('#accountLogout')?.addEventListener('click',async()=>{if(!authClient)return;await cloudSync();cloudBusy=true;try{for(const k of CLOUD_KEYS)localStorage.removeItem(k);currentSheetId=null;data=null;sheets=[];}finally{cloudBusy=false;}await authClient.auth.signOut();authUser=null;authProfile=null;updateAccountButton();render();renderCampaigns();renderAgents();accountMessage('Você saiu da conta. Os dados continuam salvos na nuvem da sua conta.');});
 updateAccountButton();
 
 </script></body></html>
