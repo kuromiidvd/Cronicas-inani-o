@@ -17,7 +17,7 @@
 body{background:radial-gradient(ellipse at 78% -10%,#3a172b 0,transparent 42%),radial-gradient(ellipse at 10% 35%,#1b1026 0,transparent 46%),#08060a}
 body:before{content:"";position:fixed;z-index:-1;pointer-events:none;width:min(48vw,540px);height:min(48vw,540px);right:-10vw;top:9vh;border-radius:50%;opacity:.09;background:radial-gradient(circle at 35% 32%,#f0dca9 0,#b9a0c9 30%,#6b4c72 52%,#211426 70%,transparent 72%);filter:blur(1px)}
 .side{background:linear-gradient(180deg,#100a15,#09070c);border-right-color:#45263e}
-.brand{color:#e9d6b0}.brand:after{content:"☾ RHER";display:block;margin-top:14px;color:#c8a35a;font-size:10px;letter-spacing:.28em}
+.brand{color:#e9d6b0}.brand:after{content:none}.brandGod{display:block;margin-top:14px;color:var(--accent);font-size:10px;letter-spacing:.22em;font-weight:850;line-height:1.4}
 .nav button:hover{background:#281629;color:#f4e7d3}.nav button.active{background:linear-gradient(90deg,#42182f,#211324);color:#e4bd73;box-shadow:inset 3px 0 #c8a35a}
 .top{background:#100b16eF;border-bottom-color:#3b233d}.btn{background:#211626;border-color:#493047;color:#eee6da}.btn:hover{border-color:#93604f;background:#302035}.btn.primary{background:linear-gradient(135deg,#8b294a,#5b1b39);border-color:#a84c63;color:#fff2dc}.btn.primary:hover{background:linear-gradient(135deg,#a33658,#702044)}
 .card{background:linear-gradient(145deg,#1a1220,#100b14);border-color:#3b263f;box-shadow:0 14px 42px #0006,0 0 0 1px #c8a35a08}.head{border-bottom-color:#38243b}.head h2{color:#dfcda9}.resource,.attr,.mini,.skill,.attack,.item,.partCard,.creatureAttr,.creatureMember{background:#100b14;border-color:#3a263e}.field input,.field textarea,.field select,.hpLine input{background:#0d0811;border-color:#49304b}.sheetAreaNav{background:#100b14;border-color:#3b263f}.sheetAreaNav button{background:#1b1120;border-color:#49304b;color:#b9aabd}.sheetAreaNav button.active{background:#c8a35a;border-color:#d8b56d;color:#160d16}.tab.active{color:#e8c47a;border-bottom-color:#c8a35a}.note{background:#1c1120;border-left-color:#c8a35a}.tag,.pill{border-color:#503653}.attr .mod,.dice .num{color:#e1bb6b}.meter i,.hpBar i{background:linear-gradient(90deg,#772447,#c8a35a)}.part:hover{fill:#4a2c4a;stroke:#c8a35a;filter:drop-shadow(0 0 7px #c8a35a55)}.part.selected{fill:#5b2948;stroke:#c8a35a}.partCard.active{border-color:#c8a35a;box-shadow:inset 3px 0 #c8a35a}.modalBox,.modalHead{background:#160e1b;border-color:#4b2e4b}.toast{background:#c8a35a;color:#1a1017}
@@ -109,7 +109,7 @@ body[data-theme] .meter i,body[data-theme] .hpBar i{background:linear-gradient(9
 <div class="app">
 <div class="sideOverlay" id="sideOverlay"></div>
 <aside class="side" id="side">
-  <div class="brand">CRÔNICAS<small>FICHA DIGITAL • SISTEMA DA INANIÇÃO</small></div>
+  <div class="brand">CRÔNICAS<small>FICHA DIGITAL • SISTEMA DA INANIÇÃO</small><span class="brandGod" id="brandGod">☾ RHER</span></div>
   <nav class="nav">
     <button type="button" class="active" data-view="sheet">◈ Ficha</button>
     <button type="button" data-view="agents">♙ Personagens</button>
@@ -448,7 +448,7 @@ function finishAbility(){
 }
 
 const THEME_KEY='cronicasTemaDivino';
-function applyTheme(theme,saveChoice=true){const chosen=DIVINE_THEMES.some(t=>t[0]===theme)?theme:'rher';document.body.dataset.theme=chosen;if(saveChoice)localStorage.setItem(THEME_KEY,chosen);renderThemeChoices();}
+function applyTheme(theme,saveChoice=true){const chosen=DIVINE_THEMES.some(t=>t[0]===theme)?theme:'rher';document.body.dataset.theme=chosen;const selected=DIVINE_THEMES.find(t=>t[0]===chosen);const brandGod=$('#brandGod');if(brandGod&&selected)brandGod.textContent='☾ '+selected[1].toLocaleUpperCase('pt-BR');if(saveChoice)localStorage.setItem(THEME_KEY,chosen);renderThemeChoices();}
 function renderThemeChoices(){const host=$('#themeChoices');if(!host)return;const active=document.body.dataset.theme||localStorage.getItem(THEME_KEY)||'rher';host.innerHTML=DIVINE_THEMES.map(([id,name,desc,color])=>`<button type="button" class="themeChoice ${id===active?'active':''}" data-theme-choice="${id}"><span class="themeSwatch" style="--swatch:${color}"></span><span><b>${esc(name)}</b><small>${esc(desc)}</small></span></button>`).join('');}
 applyTheme(localStorage.getItem(THEME_KEY)||'rher',false);
 $('#themeButton')?.addEventListener('click',()=>{$('#themeModal').classList.add('open');renderThemeChoices();});
